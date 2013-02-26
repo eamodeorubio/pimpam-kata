@@ -11,4 +11,10 @@ describe('PimPam Game (an extended version of FizzBuzz)', function() {
       expect(pimpam(1)).to.be.equal('');
     });
   });
+
+  context('Divisible by 3 returns Pim', function() {
+    it('Number 3', function() {
+      expect(pimpam(3)).to.be.equal('Pim');
+    });
+  });
 });
