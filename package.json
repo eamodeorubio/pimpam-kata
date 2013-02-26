@@ -1,0 +1,21 @@
+{
+  "name": "pimpam",
+  "version": "0.0.0",
+  "description": "An extended version of the FizzBuzz kata",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha -u bdd -R nyan -G ./index.js"
+  },
+  "repository": "",
+  "keywords": [
+    "FizzBuzz",
+    "kata",
+    "TDD"
+  ],
+  "author": "Enrique Amodeo",
+  "license": "BSD",
+  "devDependencies": {
+    "mocha": "~1.8.1",
+    "chai": "~1.5.0"
+  }
+}
