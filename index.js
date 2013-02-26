@@ -2,6 +2,8 @@ var expect = require('chai').expect;
 
 
 function pimpam(n) {
+  if(n === 180)
+    return 'Gominolas';
   if(n === 60)
     return 'Toma';
   function resultIfDivisibleBy(opts) {
