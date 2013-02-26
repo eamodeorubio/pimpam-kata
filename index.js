@@ -66,5 +66,8 @@ describe('PimPam Game (an extended version of FizzBuzz)', function() {
     it('Number 60 returns Toma', function() {
       expect(pimpam(60)).to.be.equal('Toma');
     });
+    it('Number 180 returns Gominolas', function() {
+      expect(pimpam(180)).to.be.equal('Gominolas');
+    });
   });
 });
