@@ -59,4 +59,10 @@ describe('PimPam Game (an extended version of FizzBuzz)', function() {
       expect(pimpam(30)).to.be.equal('PimPamPum');
     });
   });
+
+  context('There are magic numbers', function() {
+    it('Number 60 returns Toma', function() {
+      expect(pimpam(60)).to.be.equal('Toma');
+    });
+  });
 });
