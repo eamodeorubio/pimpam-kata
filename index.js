@@ -2,6 +2,8 @@ var expect = require('chai').expect;
 
 
 function pimpam(n) {
+  if(n % 3 === 0 && n % 5 === 0)
+    return 'PimPam';
   if(n % 3 === 0)
     return 'Pim';
   if(n % 5 === 0)
