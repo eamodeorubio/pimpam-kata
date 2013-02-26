@@ -8,7 +8,9 @@ function pimpam(n) {
     return '';  
   }
 
-  return resultIfDivisibleBy('Pim', 3) + resultIfDivisibleBy('Pam', 5);
+  return resultIfDivisibleBy('Pim', 3) + 
+          resultIfDivisibleBy('Pam', 5) +
+          resultIfDivisibleBy('Pum', 2);
 }
 
 describe('PimPam Game (an extended version of FizzBuzz)', function() {
