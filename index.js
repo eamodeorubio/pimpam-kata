@@ -2,9 +2,9 @@ var expect = require('chai').expect;
 
 
 function pimpam(n) {
-  function resultIfMagicNumber(result, magicNumber) {
-    if(n === magicNumber)
-      return result;
+  function resultIfMagicNumber(opts) {
+    if(n === opts.magicNumber)
+      return opts.result;
   }
   function resultIfDivisibleBy(opts) {
     if(n % opts.divisor === 0)
@@ -12,9 +12,15 @@ function pimpam(n) {
     return '';  
   }
 
-  var r = resultIfMagicNumber('Gominolas', 180);
-  if(!r)
-    r = resultIfMagicNumber('Toma', 60);
+  var r = [
+    {result: 'Toma', magicNumber: 60},
+    {result: 'Gominolas', magicNumber: 180}
+  ].reduce(function(result, opts) {
+    if(!result)
+      return resultIfMagicNumber(opts);
+    return result;
+  }, r);
+
   if(!r) {
     r = [
       {result: 'Pim', divisor: 3},
