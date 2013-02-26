@@ -1,7 +1,9 @@
 var expect = require('chai').expect;
 
 
-function pimpam() {
+function pimpam(n) {
+  if(n === 3)
+    return 'Pim';
   return '';
 }
 
