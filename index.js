@@ -2,14 +2,18 @@ var expect = require('chai').expect;
 
 
 function pimpam(n) {
-  function resultIfDivisibleBy(result, divisor) {
-    if(n % divisor === 0)
-      return result;
+  function resultIfDivisibleBy(opts) {
+    if(n % opts.divisor === 0)
+      return opts.result;
     return '';  
   }
 
-  return [['Pim', 3], ['Pam', 5], ['Pum', 2]].reduce(function(result, args) {
-    return result += resultIfDivisibleBy(args[0], args[1]);
+  return [
+    {result: 'Pim', divisor: 3},
+    {result: 'Pam', divisor: 5},
+    {result: 'Pum', divisor: 2}
+  ].reduce(function(result, opts) {
+    return result += resultIfDivisibleBy(opts);
   }, '');
 }
 
