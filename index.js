@@ -1,23 +1,22 @@
 var expect = require('chai').expect;
 
+function magicNumberRule(opts) {
+  return function(resultSoFar, n) {
+    if(n === opts.magicNumber)
+      return opts.result;
+    return resultSoFar;
+  };
+}
+
+function divisibleNumberRule(opts) {
+  return function(resultSoFar, n) {
+    if(n % opts.divisor === 0)
+      return resultSoFar + opts.result;
+    return resultSoFar;  
+  };
+}
 
 function pimpam(n) {
-  function magicNumberRule(opts) {
-    return function(resultSoFar) {
-      if(n === opts.magicNumber)
-        return opts.result;
-      return resultSoFar;
-    };
-  }
-
-  function divisibleNumberRule(opts) {
-    return function(resultSoFar) {
-      if(n % opts.divisor === 0)
-        return resultSoFar + opts.result;
-      return resultSoFar;  
-    };
-  }
-
   return [
     divisibleNumberRule({result: 'Pim', divisor: 3}),
     divisibleNumberRule({result: 'Pam', divisor: 5}),
@@ -25,7 +24,7 @@ function pimpam(n) {
     magicNumberRule({result: 'Toma', magicNumber: 60}),
     magicNumberRule({result: 'Gominolas', magicNumber: 180})
   ].reduce(function(result, rule) {
-    return rule(result);
+    return rule(result, n);
   }, '');
 }
 
