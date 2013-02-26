@@ -44,9 +44,15 @@ describe('PimPam Game (an extended version of FizzBuzz)', function() {
     });
   });
 
-  context('Divisible by 2 and 3 returns PimPum', function() {
-    it('Number 6', function() {
+  context('Divisible by a combination of 2, 3 and 5', function() {
+    it('Number 6 returns PimPum', function() {
       expect(pimpam(6)).to.be.equal('PimPum');
+    });
+    it('Number 10 returns PamPum', function() {
+      expect(pimpam(10)).to.be.equal('PamPum');
+    });
+    it('Number 30 returns PimPamPum', function() {
+      expect(pimpam(30)).to.be.equal('PimPamPum');
     });
   });
 });
