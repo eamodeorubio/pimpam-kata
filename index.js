@@ -24,10 +24,6 @@ describe('PimPam Game (an extended version of FizzBuzz)', function() {
     it('Number 3', function() {
       expect(pimpam(3)).to.be.equal('Pim');
     });
-
-    xit('Number 6', function() {
-      expect(pimpam(6)).to.be.equal('Pim');
-    });
   });
 
   context('Divisible by 5 returns Pam', function() {
@@ -45,6 +41,12 @@ describe('PimPam Game (an extended version of FizzBuzz)', function() {
   context('Divisible by 2 returns Pum', function() {
     it('Number 2', function() {
       expect(pimpam(2)).to.be.equal('Pum');
+    });
+  });
+
+  context('Divisible by 2 and 3 returns PimPum', function() {
+    it('Number 6', function() {
+      expect(pimpam(6)).to.be.equal('PimPum');
     });
   });
 });
