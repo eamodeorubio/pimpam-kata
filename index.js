@@ -2,12 +2,13 @@ var expect = require('chai').expect;
 
 
 function pimpam(n) {
-  var r = '';
-  if(n % 3 === 0)
-    r += 'Pim';
-  if(n % 5 === 0)
-    r += 'Pam';
-  return r;
+  function resultIfDivisibleBy(result, divisor) {
+    if(n % divisor === 0)
+      return result;
+    return '';  
+  }
+
+  return resultIfDivisibleBy('Pim', 3) + resultIfDivisibleBy('Pam', 5);
 }
 
 describe('PimPam Game (an extended version of FizzBuzz)', function() {
