@@ -2,7 +2,7 @@ var expect = require('chai').expect;
 
 
 function pimpam(n) {
-  if(n === 3 || n === 6)
+  if(n % 3 === 0)
     return 'Pim';
   return '';
 }
