@@ -2,32 +2,36 @@ var expect = require('chai').expect;
 
 
 function pimpam(n) {
-  function resultIfMagicNumber(opts) {
-    if(n === opts.magicNumber)
-      return opts.result;
+  function magicNumberRule(opts) {
+    return function() {
+      if(n === opts.magicNumber)
+        return opts.result;
+    };
   }
-  function resultIfDivisibleBy(opts) {
-    if(n % opts.divisor === 0)
-      return opts.result;
-    return '';  
+  function divisibleNumberRule(opts) {
+    return function() {
+      if(n % opts.divisor === 0)
+        return opts.result;
+      return '';  
+    };
   }
 
   var r = [
-    {result: 'Toma', magicNumber: 60},
-    {result: 'Gominolas', magicNumber: 180}
-  ].reduce(function(result, opts) {
+    magicNumberRule({result: 'Toma', magicNumber: 60}),
+    magicNumberRule({result: 'Gominolas', magicNumber: 180})
+  ].reduce(function(result, rule) {
     if(!result)
-      return resultIfMagicNumber(opts);
+      result = rule();
     return result;
-  }, r);
+  }, '');
 
   if(!r) {
     r = [
-      {result: 'Pim', divisor: 3},
-      {result: 'Pam', divisor: 5},
-      {result: 'Pum', divisor: 2}
-    ].reduce(function(result, opts) {
-      return result += resultIfDivisibleBy(opts);
+      divisibleNumberRule({result: 'Pim', divisor: 3}),
+      divisibleNumberRule({result: 'Pam', divisor: 5}),
+      divisibleNumberRule({result: 'Pum', divisor: 2})
+    ].reduce(function(result, rule) {
+      return result += rule();
     }, '');
   }
   return r;
