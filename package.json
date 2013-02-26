@@ -4,7 +4,7 @@
   "description": "An extended version of the FizzBuzz kata",
   "main": "index.js",
   "scripts": {
-    "test": "mocha -u bdd -R nyan -G ./index.js"
+    "test": "mocha -u bdd -R nyan ./index.js"
   },
   "repository": "",
   "keywords": [
