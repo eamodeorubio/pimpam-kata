@@ -18,5 +18,9 @@ describe('PimPam Game (an extended version of FizzBuzz)', function() {
     it('Number 3', function() {
       expect(pimpam(3)).to.be.equal('Pim');
     });
+
+    it('Number 6', function() {
+      expect(pimpam(6)).to.be.equal('Pim');
+    });
   });
 });
