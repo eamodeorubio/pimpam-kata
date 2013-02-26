@@ -4,6 +4,8 @@ var expect = require('chai').expect;
 function pimpam(n) {
   if(n % 3 === 0)
     return 'Pim';
+  if(n % 5 === 0)
+    return 'Pam';
   return '';
 }
 
