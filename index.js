@@ -2,23 +2,29 @@ var expect = require('chai').expect;
 
 
 function pimpam(n) {
-  if(n === 180)
-    return 'Gominolas';
-  if(n === 60)
-    return 'Toma';
+  function resultIfMagicNumber(result, magicNumber) {
+    if(n === magicNumber)
+      return result;
+  }
   function resultIfDivisibleBy(opts) {
     if(n % opts.divisor === 0)
       return opts.result;
     return '';  
   }
 
-  return [
-    {result: 'Pim', divisor: 3},
-    {result: 'Pam', divisor: 5},
-    {result: 'Pum', divisor: 2}
-  ].reduce(function(result, opts) {
-    return result += resultIfDivisibleBy(opts);
-  }, '');
+  var r = resultIfMagicNumber('Gominolas', 180);
+  if(!r)
+    r = resultIfMagicNumber('Toma', 60);
+  if(!r) {
+    r = [
+      {result: 'Pim', divisor: 3},
+      {result: 'Pam', divisor: 5},
+      {result: 'Pum', divisor: 2}
+    ].reduce(function(result, opts) {
+      return result += resultIfDivisibleBy(opts);
+    }, '');
+  }
+  return r;
 }
 
 describe('PimPam Game (an extended version of FizzBuzz)', function() {
