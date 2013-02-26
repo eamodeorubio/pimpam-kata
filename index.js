@@ -2,13 +2,12 @@ var expect = require('chai').expect;
 
 
 function pimpam(n) {
-  if(n % 3 === 0 && n % 5 === 0)
-    return 'PimPam';
+  var r = '';
   if(n % 3 === 0)
-    return 'Pim';
+    r += 'Pim';
   if(n % 5 === 0)
-    return 'Pam';
-  return '';
+    r += 'Pam';
+  return r;
 }
 
 describe('PimPam Game (an extended version of FizzBuzz)', function() {
