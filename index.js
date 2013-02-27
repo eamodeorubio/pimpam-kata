@@ -29,7 +29,7 @@ function pimpam(n) {
 }
 
 function game() {
-  
+  return pimpam;
 }
 
 describe('A MagicNumber rule', function() {
