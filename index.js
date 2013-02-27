@@ -28,6 +28,10 @@ function pimpam(n) {
   }, '');
 }
 
+function game() {
+  
+}
+
 describe('A MagicNumber rule', function() {
   context('configured with magic number "33" and result "John"', function() {
     var rule;
@@ -66,7 +70,16 @@ describe('A DivisibleNumber rule', function() {
   });
 });
 
-describe('PimPam Game (an extended version of FizzBuzz)', function() {
+describe('A Game', function() {
+
+});
+
+describe('PimPam is the default game', function() {
+  var pimpam;
+  beforeEach(function() {
+    pimpam = game();
+  });
+
   context('Not divisible either by 3 or 5 returns empty string', function() {
     it('Number 1', function() {
       expect(pimpam(1)).to.be.equal('');
