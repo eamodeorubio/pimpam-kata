@@ -32,8 +32,14 @@ function pimpam(n) {
   }, '');
 }
 
-function game() {
-  return pimpam;
+function game(rules) {
+  if(!rules)
+    return pimpam;
+  return function(n) {
+    return rules.reduce(function(result, rule) {
+      return rule(result, n);
+    }, '');
+  };
 }
 
 describe('A MagicNumber rule', function() {
@@ -97,12 +103,12 @@ describe('A Game', function() {
       });
 
       it('will call once rule X with 10 and current result ""', function() {
-        expect(ruleX).to.have.been.calledOnce();
+        expect(ruleX).to.have.been.calledOnce;
         expect(ruleX).to.have.been.calledWith('', 10);
       });
 
       it('will call once rule Y with 10 and the result of rule X', function() {
-        expect(ruleY).to.have.been.calledOnce();
+        expect(ruleY).to.have.been.calledOnce;
         expect(ruleY).to.have.been.calledWith(ruleXResult, 10);
       });
 
